@@ -28,7 +28,6 @@ export class SearchComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    
     this.searchGroup.get('monstersGroup.controlMonsters')?.valueChanges.subscribe(res => { 
       this.checkedMonsters = (Boolean)(res);
       console.log(this.checkedMonsters);
@@ -45,7 +44,7 @@ export class SearchComponent implements OnInit {
       this.filteredEffects = res;
       console.log(this.filteredEffects);
     });
-
   }
 
+  displayEffect(){}
 }
