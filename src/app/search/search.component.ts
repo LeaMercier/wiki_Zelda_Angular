@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { ControlContainer, FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-search',
@@ -12,30 +12,38 @@ export class SearchComponent implements OnInit {
   checkedCreaturesFood : boolean = false;
   checkedMonsters : boolean = true;
 
-  
-  monstersGroup: FormGroup = new FormGroup({
-    controlMonsters: new FormControl(),
-    controlCreaturesFood: new FormControl(),
-    controlCreaturesNoFood: new FormControl(),
-  });
+  searchGroup = new FormGroup({
+    controlEffect:  new FormControl(),
+    monstersGroup: new FormGroup({
+      controlMonsters: new FormControl(),
+      controlCreaturesFood: new FormControl(),
+      controlCreaturesNoFood: new FormControl(),
+    })
+  })
 
-  constructor(
-    private reactiveFormsModule : ReactiveFormsModule
-  ) { }
+  listEffects: string[] = ["defense up", "speed up", 'attack up']
+  filteredEffects !: String[];
+
+
+  constructor() { }
 
   ngOnInit(): void {
     
-    this.monstersGroup.get('controlMonsters')?.valueChanges.subscribe(res => { 
+    this.searchGroup.get('monstersGroup.controlMonsters')?.valueChanges.subscribe(res => { 
       this.checkedMonsters = (Boolean)(res);
       console.log(this.checkedMonsters);
     });
-    this.monstersGroup.get('controlCreaturesFood')?.valueChanges.subscribe(res => { 
+    this.searchGroup.get('monstersGroup.controlCreaturesFood')?.valueChanges.subscribe(res => { 
       this.checkedCreaturesFood = (Boolean)(res);
       console.log(this.checkedCreaturesFood);
     });
-    this.monstersGroup.get('controlCreaturesNoFood')?.valueChanges.subscribe(res => { 
+    this.searchGroup.get('monstersGroup.controlCreaturesNoFood')?.valueChanges.subscribe(res => { 
       this.checkedCreaturesNoFood = (Boolean)(res);
       console.log(this.checkedCreaturesNoFood);
+    });
+    this.searchGroup.get('controlEffect')?.valueChanges.subscribe(res => { 
+      this.filteredEffects = res;
+      console.log(this.filteredEffects);
     });
 
   }
