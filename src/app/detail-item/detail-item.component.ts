@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { IData } from 'src/assets/mock-data/IData';
+import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute, ParamMap } from '@angular/router';
+import { IData } from 'src/app/IData';
+import { DataMockService } from '../data-mock.service';
 
 @Component({
   selector: 'app-detail-item',
@@ -7,18 +9,18 @@ import { IData } from 'src/assets/mock-data/IData';
   styleUrls: ['./detail-item.component.css']
 })
 export class DetailItemComponent implements OnInit {
-  
-  private myData: IData;
 
-  constructor(myData : IData) {
-    this.myData = myData;
+  @Input() 
+  myData!: IData;
+  getCreature : boolean = false;
+
+  constructor(
+    private dataMockService : DataMockService,
+    private route: ActivatedRoute) {
   }
 
   ngOnInit(): void {
   }
 
-  getMyData(){
-    return this.myData;
-  }
 
 }

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { MatCardModule } from '@angular/material/card';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -7,6 +8,8 @@ import { NavComponent } from './nav/nav.component';
 import { HomeComponent } from './home/home.component';
 import { ListComponent } from './list/list.component';
 import { DetailItemComponent } from './detail-item/detail-item.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CreatureComponent } from './creature/creature.component';
 
 @NgModule({
   declarations: [
@@ -14,11 +17,14 @@ import { DetailItemComponent } from './detail-item/detail-item.component';
     NavComponent,
     HomeComponent,
     ListComponent,
-    DetailItemComponent
+    DetailItemComponent,
+    CreatureComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    MatCardModule,
+    AppRoutingModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

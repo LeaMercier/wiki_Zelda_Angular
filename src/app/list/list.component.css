@@ -1,0 +1,9 @@
+/* Style général */
+ 
+
+ul {
+    list-style-type: none;
+}
+li {
+    float:left;
+}
