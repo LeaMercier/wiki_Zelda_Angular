@@ -1,8 +1,16 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {HomeComponent} from 'src/app/home/home.component'
+import { HomeComponent } from 'src/app/home/home.component'
+import { CreatureComponent } from './creature/creature.component';
+import { ListComponent } from './list/list.component';
+import { SearchComponent } from './search/search.component';
+
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
+  {path: 'monsters', component: ListComponent},
+  {path: 'creatures', component: ListComponent},
+  {path: 'search', component: SearchComponent},
+  {path: 'creatures/:id', component: CreatureComponent},
   {path: '', redirectTo:'home', pathMatch:"full"},
   {path: '**', component: HomeComponent}
 ];

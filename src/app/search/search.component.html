@@ -1,0 +1,17 @@
+<div>
+    <form [formGroup]="searchGroup">
+        <div formGroupName="monstersGroup">
+            <mat-slide-toggle formControlName="controlMonsters" name="monsterchec" color="warn">Monsters</mat-slide-toggle>
+            <mat-slide-toggle formControlName="controlCreaturesNoFood" name="creatureNoFoodCheck" color="warn">Creatures (no food)</mat-slide-toggle>
+            <mat-slide-toggle formControlName="controlCreaturesFood" name="creatureFoodCheck" color="warn">Creatures (food)</mat-slide-toggle>
+        </div>
+        <div>
+            <mat-select formControlName="controlEffect" name="" multiple *ngIf="checkedCreaturesFood"> 
+                <mat-label>Select the cookig effect</mat-label>
+                <mat-option *ngFor="let effect of listEffects" [value]=effect>{{effect}}</mat-option>
+            </mat-select> 
+        </div>        
+    </form>
+</div>
+
+  

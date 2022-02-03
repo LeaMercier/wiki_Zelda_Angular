@@ -1,1 +1,7 @@
-<p>detail-item works!</p>
+<mat-card>
+    <a [routerLink]="['/creatures', myData.id]" routerLinkActive="active">
+        <img mat-card-image src={{myData.image}}> 
+        <mat-card-content>{{myData.name}}</mat-card-content>
+    </a>
+</mat-card>
+
