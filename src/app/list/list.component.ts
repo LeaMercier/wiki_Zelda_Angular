@@ -14,7 +14,9 @@ export class ListComponent implements OnInit {
   @Input()
   dataList !: IData[];
   
-  constructor(private dataMockService : DataMockService, private route: ActivatedRoute) {
+  constructor(
+    private dataMockService : DataMockService, 
+    private route: ActivatedRoute) {
     this.dataMockService = new DataMockService();
   }
 
@@ -23,7 +25,7 @@ export class ListComponent implements OnInit {
      res.forEach(path => {
        if (path.toString() == 'monsters') {
         this.getMonsters();
-       } else {
+       } else if (path.toString() == 'creatures') {
         this.getCreatures();
        }
      })
